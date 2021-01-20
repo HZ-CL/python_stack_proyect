@@ -55,18 +55,4 @@ for x in range(lowNum, highNum+1):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-from os import system
 system("cls")

@@ -12,6 +12,14 @@ num = 45
 print("")
 
 
+print("# F-Strings (interpolación literal de cadenas)")
+first_name = "Zen"
+last_name = "Coder"
+age = 27
+print(f"mi nombre es {first_name} {last_name} y tengo {age} años")
+
+
+
 
 print("# string.format()")
 
@@ -54,3 +62,19 @@ print(x.upper())#salida: HOLA MUNDO
 #string.isalnum(): devuelve booleano dependiendo de si la longitud de la cadena es> 0 y todos los caracteres son alfanuméricos (solo letras y números). Las cadenas que incluyen espacios y signos de puntuación devolverán False para este método. Métodos similares incluyen .isalpha(), .isdigit(), .islower(), .isupper(), y así sucesivamente. Todos regresan booleanos.
 #string.join(list):  devuelve una cadena que es todas las cadenas dentro de nuestro conjunto (en este caso, una lista) concatenadas.
 #string.endswith(substring): devuelve un valor booleano en función de si los últimos caracteres de la cadena coinciden con la subcadena
+
+lenguajes = ["Go", "Rust", "C", "JavaScript", "PHP", "Python"]
+print("Original", lenguajes)
+
+lenguajes.reverse()
+print("Reverse: ", lenguajes)#['Python', 'PHP', 'JavaScript', 'C', 'Rust', 'Go']
+
+print(lenguajes[2:])
+print(lenguajes[:2])
+print(lenguajes[:])
+print(lenguajes[::])
+print(lenguajes[-2])
+print()
+
+invertidos = lenguajes[::-1]
+print("Invertidos: ",invertidos)
