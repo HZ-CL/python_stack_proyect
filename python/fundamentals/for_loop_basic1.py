@@ -55,4 +55,3 @@ for x in range(lowNum, highNum+1):
 
 
 
-system("cls")
