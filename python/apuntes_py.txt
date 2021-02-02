@@ -1,0 +1,92 @@
+listas trabajan con [] --modificable
+    nombre_lista = ["valor1", "valor2", "valor3"]
+
+tuplas trabajan con () --no se pueden modificar
+    nombre_tupla = ("valor1", "valor2", "valor3")
+
+Diccionario trabaja con {} --modificable
+    nombre_diccionario = {}
+
+
+
+
+Para agregar un  valor a una lista al final
+
+    nombre_lista.append("valor")
+
+agregar un valor en un indice especifico
+
+    nombre_lista.insert(2, "valor") -- primero el indice y uego el valor
+
+agregar varios elementos a continuacion de la lista
+
+    nombre_lista.extend(["valor1", "valor2", "valor3", "etc"])
+
+para saber el indice de algun elemento dentro de una lista
+
+    print(nombre_lista.index("valor_especifico")) --si hay valores repetidos, devolvera el primer valor encontrado
+
+para saber si hay algun valor en una lista e imprimir un buluano true o false
+
+    print("valor" in nombre_lista) -- debuelve un true si encuentra y un false no encontrado
+
+para eliminar un valor o elemento en una lista
+
+    nombre_lista.remove("valor")
+
+eliminar el ultimo elemento de una lista
+
+    nombre_lista.pop()
+
+sumar listas o unir listas
+
+    lista1 = ["valor1", "valor2"]
+    lista2 = ["valor3", "valor4"]
+    lista3 = lista1 +lista2
+
+para contar cuantas veces esta el elemento en una tuppla o lista
+    print(nombre_tupla.count("valor"))
+
+para averiguar la longuitud de tuplas/listas/diccionarios
+    print(len(nombre_lista))
+
+convertir tuplas en listas
+    nombre_tupla = ("valor1", "valor2", "valor3")
+    nombre_lista = list(nombre_tupla)
+
+convertir lista en tuplas
+    nombre_lista = ["valor1", "valor2", "valor3"]
+    nombre_tupla = tuple(nombre_lista)
+
+para asignar un valor nuevo a un Diccionario
+    nombre_diccionario={"clave1":"valor1", "clave2":"valor2", "clave3":"valor3"}
+    nombre_diccionario["clave4"]="valor5"
+
+para  modificar el valor de una clave
+    nombre_diccionario["clave4"]="valor4"
+
+como eliminar un elemento de un diccionario
+    del nombre_diccionario["clave2"] --palabra reservada "del"
+
+print de las claves de un diccionario
+    print(nombre_diccionario.keys()) --devuelve las claves sin su valor
+
+print de los valores de la claves de un diccionario
+    print(nombre_diccionario.values())
+
+____________________________________
+*para intercambios mas eficientes
+*arr = [1,2,3,5,7]
+*arr[0], arr[1] = arr[1], arr[0]
+___________________________________
+
+
+metodos de secuencias incorporados
+funciones:
+max(secuencia) --devuelve el valor más grande en la secuencia
+sum(secuencia) --devuelve la suma de todos los valores en secuencia
+map(funcion, secuencia) --aplica la función a cada elemento en la secuencia que pasa. Devuelve una lista de los resultados.
+min(secuencia) --devuelve el valor más bajo en una secuencia
+sorted(secuencia) --devuelve una lista ordenada de los valores de la secuencia
+
+
