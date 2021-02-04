@@ -90,3 +90,9 @@ min(secuencia) --devuelve el valor más bajo en una secuencia
 sorted(secuencia) --devuelve una lista ordenada de los valores de la secuencia
 
 
+importar modulos (archivos con metodos)
+    import nombre_archivo
+
+para usar los metodos del archivo importado
+    nombre_archivo.metodo()
+
