@@ -1,0 +1,38 @@
+MVC =  Model-View-Controller
+MTV = Model-Template-View(metodo de django)
+
+(todo en cmd/consola de comandos)
+antes de crear cualquier proyecto, crear un entorno virtual con django instalado
+
+considerar instalar pip3
+    pip3 install #instalacion general
+    pip3 install django #instalcion paquete de datos django
+
+crar entorno virtual en una carpeta especifica
+    python -m venv nombre_entorno
+
+activar entorno(estar en la carpeta donde se instalo el entorno virtual)
+    call nombre_entorno\Scripts\activate
+
+desactivar el entonro despues de iniciado(comando directo en la consola)
+    deactivate
+
+con el entorno activado instalar el django
+    pip3 install django
+
+revisar los paquetes instalados en el entorno virtual
+    pip3 list
+
+crear un proyecto nuevo por consola con entorno activado
+    django-admin startproject nombre_porjet
+
+crear una app nueva por consola dentro del direcctorio del proyecto
+    python manage.py startapp nombre_app
+
+levantar el servicio de django con el proyecto
+    python manage.py runserver
+
+una vez creado el proyecto a cada app creada son los pasos
+    1 archivo settins.py (del proyecto)
+    2 en la variable INSTALLED_APPS (inculir el nombre de las apps creadas)
+
