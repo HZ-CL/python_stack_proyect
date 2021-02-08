@@ -35,4 +35,21 @@ levantar el servicio de django con el proyecto
 una vez creado el proyecto a cada app creada son los pasos
     1 archivo settins.py (del proyecto)
     2 en la variable INSTALLED_APPS (inculir el nombre de las apps creadas)
+    3 en el archivo urls.py del proyecto incluir la ruta a nuestar app
+    4 en la carpeta de la app crear un archivo urls.py y pegar
+        from django.urls import path
+        from . import views
+        urlpatterns = [
+            path('', views.index),	   
+        ]
+    5 en el archivo views.py de la app, agregar una funcion index
+
+para revisar posibles errores em las app del proyecto
+    python manage.py check app_name
+
+la importacion de plantillas (html) en el archivo views.py
+	from django.shortcuts import render
+	def index(request):
+	    return render(request, "index.html")#reuest=solicitud; despues un str que indica el html
+
 
