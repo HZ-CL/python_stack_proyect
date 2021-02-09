@@ -52,4 +52,14 @@ la importacion de plantillas (html) en el archivo views.py
 	def index(request):
 	    return render(request, "index.html")#reuest=solicitud; despues un str que indica el html
 
+el atributo "action=" de la etiqueta form indica la ruta que procesara el formulario
 
+el atributo "method=" puede ser post o get, configurar en post par ocultar la informacion
+
+token CSRF {% csrf_token %} parte del form para dar mayor seguridad
+
+el boton de un formulario solo puede ser :
+<input type='submit'>o <button type='submit'>Submit</button>
+
+usar sesio en django y comience a guardar datos de sesion
+python manage.py migrate
