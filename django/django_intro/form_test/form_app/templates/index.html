@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form_Test</title>
+
+</head>
+
+
+<body>
+    <div>
+        <button type="button" class="btn btn-success"> <a href="http://127.0.0.1:8000/random_word/" ><h1>Random Word</h1></a> </button>
+        <h1>Index Page</h1>
+        <h3>Create a User</h3>
+        <form action='/users' method='post'>
+            {% csrf_token %} Name: <input type='text' name='name'> Email: <input type='text' name='email'>
+            <button type='submit'>Create User</button>
+        </form>
+    </div>
+</body>
+
+</html>
