@@ -1,0 +1,37 @@
+#container {
+    display: inline-block;
+    width: 920px;
+    margin: 0px, auto !important;
+}
+
+div .formularios {
+    display: inline-block;
+    width: 24%;
+    margin: auto;
+}
+
+div #Farm {
+    vertical-align: left !important;
+}
+
+#registro {
+    width: 920px;
+    height: 300px;
+    overflow: auto;
+    margin: 0px, auto;
+}
+
+.gano {
+    font-weight: 600;
+    color: limegreen;
+}
+
+.perdio {
+    font-weight: 600;
+    color: red;
+}
+
+.nada {
+    font-weight: 600;
+    color: rgb(155, 6, 255);
+}
