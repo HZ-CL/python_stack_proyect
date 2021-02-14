@@ -63,3 +63,6 @@ el boton de un formulario solo puede ser :
 
 usar sesio en django y comience a guardar datos de sesion
 python manage.py migrate
+
+
+

@@ -50,10 +50,10 @@ students = [
 def iterateDictionary(some_list):
 # La salida debería ser: (Está bien si cada clave y valor quedan en dos líneas separadas)
 # Bonus: Hacer que aparezcan exactamente así!
-    for fl in some_list:
-        print(fl)
-    #for key, val in list.items():
-        #print(key," = ",val)
+    #for fl in some_list:
+        #print(fl)
+    for key, val in some_list:
+        print(key," = ",val)
 
 x = iterateDictionary(students)
 print(x)
@@ -67,17 +67,18 @@ students = [
         {'first_name' : 'Mark', 'last_name' : 'Guillen'},
         {'first_name' : 'KB', 'last_name' : 'Tonel'}
     ]
-print(students[0]['last_name'])
+print(students[0]['last_name']+' '+students[0]['first_name'])
 
 def iterateDictionary2(key_name, some_list):
     for key in range(0, len(some_list)):
         if key_name == 'frist_name':
             #print(key) #para ver el valor de key
-            print(some_list[key]['first_name'])
+            print(key)
+            #print(some_list[key]['first_name'])
         if key_name == 'last_name':
             #print(key)
             print(some_list[key]['last_name'])
-h=iterateDictionary2('last_name', students)
+h=iterateDictionary2('frist_name', students)
 
 
 

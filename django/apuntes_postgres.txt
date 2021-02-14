@@ -1,0 +1,29 @@
+-------- Postgres -------
+descargar e instalar desde https://www.postgresql.org/
+en consola y con entorno activado instalar el controlador
+	pip install psycopg2
+en los proyectos archivo sittings DATABASES
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', # change database to postgres
+        'NAME': 'first_postgres_db', # name of the database, will be created in Postgres server below
+        'USER': 'pkrull', # postgres role for macOS or 'USER': 'postgres', for Windows
+        'PASSWORD': 'password', # password you changed it to while installing Postgres
+        'HOST': '127.0.0.1', # localhost ip address
+        'PORT': '5432', # default postgres server port
+    }
+}
+
+INCRORPORAL Y GUARDAR.
+
+conectar a postgres en consola con entorno virtual activado
+	psql -U postgres
+	*password*
+
+crear una base de datos 
+	CREATE DATABASE nombre_database;
+
+
+
+

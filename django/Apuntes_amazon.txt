@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+en consola de gitbash y en la carpeta donde esta clave.pem
+	ssh -i "nombre del archivo".pem ubuntu@"direccion ipv4"
+
+clonar el repositorio del proyecto
+	git clone "direccion del repo"
+
+
+actualizar instaladores 
+	sudo apt upgrade
+	sudo apt update
+
+instalar el gestor de entorno virtual
+	sudo apt-get install python3-venv
+
+crear entorno virtual
+	python3 -m venv "nombre_entorno"	
+
+activar entorno
+	source "nombre_entorno/bin/activate
