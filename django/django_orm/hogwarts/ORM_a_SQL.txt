@@ -1,0 +1,43 @@
+>>> from hogwarts_app.models import *
+
+>>> Wizard.objects.create(name="Luna Lovegood", house="Ravenclaw", pet="None", year="4")
+<Wizard: Wizard object (1)>
+
+>>> Wizard.objects.create(name="Padma Patil", house="Ravenclaw", pet="None", year="5")
+<Wizard: Wizard object (2)>
+
+>>> revenclaws = Wizard.objects.filter(house="Ravenclaw")
+
+>>> print(revenclaws)
+<QuerySet [<Wizard: Wizard object (1)>, <Wizard: Wizard object (2)>]>
+
+>>> revenclaws.first()
+<Wizard: Wizard object (1)>
+
+>>> revenclaws.first().name
+'Luna Lovegood'
+
+>>> revenclaws.get(name="Padma Patil").name
+'Padma Patil'
+
+>>> revenclaws.last().name
+'Padma Patil'
+
+>>> revenclaws.all().values()
+<QuerySet [{'id': 1, 'name': 'Luna Lovegood', 'house': 'Ravenclaw', 'pet': 'None', 'year': 4}, {'id': 
+2, 'name': 'Padma Patil', 'house': 'Ravenclaw', 'pet': 'None', 'year': 5}]>
+
+>>> luna = Wizard.objects.get(name="Luna Lovegood")
+
+>>> luna
+<Wizard: Wizard object (1)>
+
+>>> luna.year
+4
+
+>>> luna.year = 5
+
+>>> luna.save()
+
+>>> luna.year
+5
