@@ -1,0 +1,69 @@
+Importar modelo:
+>>> from user_app.models import *
+
+
+Crear 3 nuevos usuarios:
+>>> Usuario.objects.create(first_name="Esteban",last_name="Zambrano",email_addres="ezam@codindojo.com", age=18)
+<Usuario: Usuario object (1)>
+
+>>> Usuario.objects.create(first_name="Carla",last_name="Mora",email_addres="cmora@codindojo.com", age=29)       
+<Usuario: Usuario object (2)>
+
+>>> Usuario.objects.create(first_name="Matias",last_name="Castro",email_addres="mcastro@codindojo.com", age=31)
+<Usuario: Usuario object (3)>
+
+
+Recuperar todos los usuarios:
+>>> Usuario.objects.all()
+<QuerySet [<Usuario: Usuario object (1)>, <Usuario: Usuario object (2)>, <Usuario: Usuario object (3)>]>
+
+
+Recuperar el ultimo usuario:
+>>> last_user = Usuario.objects.last()
+
+>>> last_user.first_name
+'Matias'
+
+Recuperar el primer usuario:
+>>> Usuario.objects.first()
+<Usuario: Usuario object (1)>
+
+>>> Usuario.objects.first().first_name
+'Esteban'
+
+Cambio de last_name:
+>>> cammbio_u3 = Usuario.objects.get(id=3)
+
+>>> cammbio_u3
+<Usuario: Usuario object (3)>
+
+>>> cammbio_u3.last_name
+'Castro'
+
+>>> cammbio_u3.last_name= "Pancakes"
+
+>>> cammbio_u3.last_name
+'Pancakes'
+
+Eliminar usuario id = 2:
+>>> eliminar_u2= Usuario.objects.get(id=2)
+
+>>> eliminar_u2
+<Usuario: Usuario object (2)>
+
+>>> eliminar_u2.first_name
+'Carla'
+
+>>> eliminar_u2.delete()
+(1, {'user_app.Usuario': 1})
+
+
+Obtener todos los usuarios ordenados por su nombre:
+>>> Usuario.objects.all().order_by("first_name")
+<QuerySet [<Usuario: Usuario object (1)>, <Usuario: Usuario object (3)>]>
+
+
+Obtener todos los usuarios ordenados por su nombre descendente:
+>>> Usuario.objects.all().order_by("-first_name")
+<QuerySet [<Usuario: Usuario object (3)>, <Usuario: Usuario object (1)>]>
+
