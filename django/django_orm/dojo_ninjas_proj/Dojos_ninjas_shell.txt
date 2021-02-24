@@ -1,0 +1,86 @@
+Ejecuta el shell e importe sus modelos:
+>>> from dojo_ninjas_app.models import Dojo, Ninja
+
+Crea 3 nuevos Dojos:
+>>> dojo_01 = Dojo.objects.create(name="the ninja", city = "Springfield", state = "IL")
+>>> dojo_02 = Dojo.objects.create(name="Cobra KAI", city = "Atlanta", state = "GA")     
+>>> dojo_03 = Dojo.objects.create(name="Watchdogs", city = "Carson City", state = "NV") 
+
+Elimina los 3 dojos que acaba de crear:
+>>> dojo_01.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> dojo_02.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> dojo_03.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+
+Crear otrso 3 dojos:
+>>> dojo_04 = Dojo.objects.create(name="Ikkitousen", city = "Austin", state = "TX")
+>>> dojo_05 = Dojo.objects.create(name="Rurouni Kenshin", city = "Austin", state = "TX")
+>>> dojo_06 = Dojo.objects.create(name="Gungrave", city = "Juneau", state = "AK")
+
+Crea 3 nijas pertenecientes al primer dojo:
+>>> ninja_01 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=4), first_name = "Hector", last_name = "Zambrano")
+>>> ninja_02 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=4), first_name = "Matias", last_name = "Castro")
+>>> ninja_03 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=4), first_name = "Carla", last_name = "Mora")
+
+Crea 3 nijas pertenecientes al segundo dojo:
+>>> ninja_04 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=5), first_name = "Italo", last_name = "Alarcon")
+>>> ninja_05 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=5), first_name = "Miguel", last_name = "Ceballos")
+>>> ninja_06 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=5), first_name = "Maximiliano", last_name = "Vasquez")
+
+Crea 3 nijas pertenecientes al tercer dojo:
+>>> ninja_07 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=6), first_name = "Exequiel", last_name = "Ulloa")
+>>> ninja_08 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=6), first_name = "Exequiel", last_name = "Tapia")
+>>> ninja_09 = Ninja.objects.create(dojo_id=Dojo.objects.get(id=6), first_name = "Barbara", last_name = "Herrera")
+
+Recupera todos los ninjas del primer dojo:
+>>> ninjas_dojo_01 = Ninja.objects.filter(dojo_id=4)
+>>> ninjas_dojo_01
+<QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+>>> for ninja in ninjas_dojo_01:
+...     print(ninja.first_name)
+...
+Hector
+Matias
+Carla
+
+----- opcion 2
+>>> dojo_04 = Dojo.objects.get(id=4)
+>>> dojo_04
+<Dojo: Dojo object (4)>
+>>> dojo_04.ninjas_dojo
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x0000016F31400B80>
+>>> dojo_04.ninjas_dojo.all()
+<QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+>>> for ninja in dojo_04.ninjas_dojo.all():
+...     print(ninja.first_name)
+...
+Hector
+Matias
+Carla
+
+
+Recupera todos los ninjas del ultimo dojo:
+>>> last_dojo = Dojo.objects.last()
+>>> last_dojo.ninjas_dojo
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x0000016F3143E130>
+>>> for ninja in last_dojo.ninjas_dojo.all():
+...     print(ninja.first_name)
+...
+Exequiel
+Exequiel
+Barbara
+>>>
+
+Recupera el ultimo ninja del dojo:
+>>> last_dojo.ninjas_dojo.last().first_name
+'Barbara'
+>>>
+
+Crear un nuevo dojo:
+>>> new_dojo = Dojo.objects.create(name="kurostaper", city="Columbus", state="OH", Desc="nuevodojo")
+>>> new_dojo
+<Dojo: Dojo object (7)>
+>>> new_dojo.name
+'kurostaper'
