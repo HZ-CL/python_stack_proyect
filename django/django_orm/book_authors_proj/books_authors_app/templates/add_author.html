@@ -19,23 +19,25 @@
         <nav class="navbar navbar-light bg-light">
             <nav class="nav nav-pills flex-column flex-sm-row">
                 <a class="flex-sm-fill text-sm-center nav-link " href="/">Libros</a>
-                <a class="flex-sm-fill text-sm-center nav-link " href="/add_author">Autores</a>
+                <a class="flex-sm-fill text-sm-center nav-link " href="/view_authors">Autores</a>
 
             </nav>
         </nav>
     </div>
+    <!-- Titulo despues de narbar-->
     <hr>
     <h1 class="text-center">Autores Disponibles</h1>
     <hr>
     <br>
+    <!-- Cuerpo de la pagina -->
     <div id="container" class="container justify-content-md-center">
         <div class="row">
-
+            <!-- Formulario para agregar elemento-->
             <div id="formulario" class="col bg-light border">
                 <hr>
-                <h3 class="text-center">Agrege un Autor</h3>
+                <h3 class="text-center">Agregar un Autor</h3>
                 <hr>
-                <form action="add_autor" method="POST">
+                <form action="add_author" method="POST">
                     {% csrf_token %}
                     <div class="form-group row">
                         <label for="nombre_autor" class="col-sm-3 col-form-label">Nombre:</label>
@@ -65,6 +67,7 @@
                     </div>
                 </form>
             </div>
+            <!-- Tabla para mostrar elementos-->
             <div id="tabla" class="col offset-md-1 bg-light border">
                 <hr>
                 <h3 class="text-center">Lista de Autores</h3>
@@ -82,16 +85,15 @@
                         {% for dato in lista %}
                         <tr>
                             <th scope="row"> {{ dato.id }} </th>
-                            <td> {{dato.title}} </td>
+                            <td> {{dato.first_name}} {{dato.last_name}} </td>
                             <td>
-                                <a href="view_book/{{dato.id}}">ver</a>
+                                <a href="author_info/{{dato.id}}">ver</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
