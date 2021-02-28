@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sports Leagues</title>
+</head>
+
+<body>
+    <h1>Leagues</h1>
+    <ol>
+        {% for league in leagues %}
+        <li> {{league.sport}}==> {{league.name}} </li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>1.- Sport = "Baseball"</h3>
+    <ol>
+        {% for league in filt_baseball %}
+        <li> {{league.name}}</li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>2.- League = "women"</h3>
+    <ol>
+        {% for league in filt_women %}
+        <li> {{league.name}}</li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>3.- Sport = "hockey"</h3>
+    <ol>
+        {% for league in filt_hockey %}
+        <li> {{league.name}}</li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>4.- Sport = "football"</h3>
+    <ol>
+        {% for league in filt_football %}
+        <li> {{league.name}}</li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>5.- In name = "conference"</h3>
+    <ol>
+        {% for league in conference %}
+        <li> {{league.name}}</li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>6.- location = "Atlanta"</h3>
+    <ol>
+        {% for league in filt_region %}
+        <li> {{league.league.name}} </li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+    <hr>
+
+    <h1>Teams</h1>
+    <ol>
+        {% for team in teams %}
+        <li>{{team.location}} ==> {{team.team_name}} </li>
+        {% empty %}
+        <p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>7.- Location = "Dallas"</h3>
+    <ol>
+        {% for team in filt_dallas %}
+        <li> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>8.- Name = "Raptors"</h3>
+    <ol>
+        {% for team in filt_raptors %}
+        <li> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>9.- Location include = "city"</h3>
+    <ol>
+        {% for team in filt_city %}
+        <li> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>10.- Name = "T"</h3>
+    <ol>
+        {% for team in filt_start_t %}
+        <li> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>11.- Order alphabetically by location </h3>
+    <ol>
+        {% for team in filt_order_alf %}
+        <li> {{team.location}}=> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>12.- Order alphabetically by -team name </h3>
+    <ol>
+        {% for team in filt_order_name %}
+        <li> {{team.team_name}} </li>
+        {% empty %}
+        <ul>
+            <li>NO TEAM FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+    <hr>
+
+    <h1>Players</h1>
+    <ol>
+        {% for player in players %}
+        <li>{{player.first_name}} {{player.last_name}}</li>
+        {% empty %}
+        <p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>13.- Player last name = "Cooper"</h3>
+    <ol>
+        {% for player in players_lastname %}
+        <li>{{player.first_name}} {{player.last_name}}</li>
+        {% empty %}
+        <p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>14.- Player first name = "Joshua"</h3>
+    <ol>
+        {% for player in players_firstname %}
+        <li>{{player.first_name}} {{player.last_name}}</li>
+        {% empty %}
+        <p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+        {% endfor %}
+    </ol>
+
+    <h3>15.- Player last name = "Cooper" except first name = "Joshua"</h3>
+    <ol>
+        {% for player in players_frist_except %}
+        <li>{{player.first_name}} {{player.last_name}}</li>
+        {% empty %}
+        <ul>
+            <li>NO PLAYER FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+    <h3>16.- Player first name = "Alexander" O "Wyatt"</h3>
+    <ol>
+        {% for player in players_multi %}
+        <li>{{player.first_name}} {{player.last_name}}</li>
+        {% empty %}
+        <ul>
+            <li>NO PLAYER FOUND</li>
+        </ul>
+        {% endfor %}
+    </ol>
+
+
+</body>
+
+</html>
