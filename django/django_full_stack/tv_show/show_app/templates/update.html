@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Importar bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <title>TV SHOW create</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- narvar -->
+        <div class="container">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Go Back</a>
+                </li>
+            </ul>
+
+            <h1>Edit Show {{show.id}}</h1>
+            <div class="row align-self-center">
+                <form class="" action="update" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group col">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" value="{{show.title}}" name='title' placeholder="title tv show" required>
+                    </div>
+                    <div class="w100"></div>
+                    <div class=" col">
+
+                        <label for="network">Network</label>
+                        <input type="text" class="form-control" id="network" value="{{show.network}}" name="network" placeholder="network">
+                    </div>
+                    <div class="col">
+                        <label for="date">Release Date:</label>
+                        <input type="date" id="release_date" value="{{show.release_date}}" name="release_date" class="form-control">
+                    </div>
+                    <div class="w100"></div>
+
+                    <div class="form-group col">
+                        <label for='description' class="t_reg">Description:</label>
+                        <div>
+                            <textarea id="description" value="" name="description">{{show.description}}
+                        </textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Submit</button>
+                </form>
+            </div>
+            <div>
+                <br>
+                <a href="/shows">Go to Show</a> </td>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--importar script bootstrap-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
