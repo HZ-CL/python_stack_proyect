@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a student to all bootcamp courses</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    <!--Importar bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-add">
+            <h1 class="title">Add a new course</h1>
+            <form class="col-6" action="courses/create" method="POST">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %} {% csrf_token %}
+                <div class="form-group col">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name='name' placeholder="name a course">
+                </div>
+                <div class="w100"></div>
+                <div class="form-group col">
+                    <label for='description' class="t_reg">Description:</label>
+                    <div>
+                        <textarea id="description" name="description" class="form-control"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success ">Add</button>
+            </form>
+        </div>
+        <br><br>
+        <div class="courses-table">
+            <h1>Courses</h1>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Course Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dato in curso %}
+                    <tr>
+                        <th scope="row"> {{dato.name}} </th>
+                        <td> {{dato.description}} </td>
+                        <td> {{dato.created_at}} </td>
+                        <td><a href="/courses/destroy/{{dato.id}}">Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!--importar script bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
