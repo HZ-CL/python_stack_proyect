@@ -73,7 +73,7 @@ def login(request):
 def success(request):
     if len(request.session['loginuser'])>0:
         return render(request, 'success.html')
-
+    messages.error (request,'Debe iniciar sesión o registrarse para ingresar')
     return redirect('/')
 
 def logout(request):
@@ -81,4 +81,5 @@ def logout(request):
     request.session['username'] = ''
     request.session['useremail'] = ''
     request.session['userid'] = 0
+    messages.error (request,'Se ha cerrado sesión')
     return redirect('/')
